@@ -1,0 +1,94 @@
+{
+        "order": 0,
+        "index_patterns": [
+            "milestone_data"
+        ],
+        "settings": {
+            "index": {
+                "analysis": {
+                    "normalizer": {
+                        "case_insensitive": {
+                            "filter": [
+                                "lowercase",
+                                "asciifolding"
+                            ],
+                            "type": "custom",
+                            "char_filter": []
+                        }
+                    }
+                },
+                "number_of_shards": "5",
+                "number_of_replicas": "2"
+            }
+        },
+        "mappings": {
+            "doc": {
+                "dynamic": "true",
+                "properties": {
+                    "archived": {
+                        "type": "boolean"
+                    },
+                    "dateCreated": {
+                        "type": "date"
+                    },
+                    "forecast": {
+                        "type": "long"
+                    },
+                    "milestoneName": {
+                        "type": "keyword",
+                        "normalizer": "case_insensitive"
+                    },
+                    "milestoneTypeId": {
+                        "type": "keyword"
+                    },
+                    "property": {
+                        "type": "keyword",
+                        "normalizer": "case_insensitive"
+                    },
+                    "regionId": {
+                        "type": "integer"
+                    },
+                    "subRegionId": {
+                        "type": "integer"
+                    },
+                    "subRegionName": {
+                        "type": "keyword",
+                        "normalizer": "case_insensitive"
+                    },
+                    "uid": {
+                        "type": "keyword"
+                    },
+                    "unitId": {
+                        "type": "keyword"
+                    },
+                    "unitName": {
+                        "type": "keyword",
+                        "normalizer": "case_insensitive"
+                    },
+                    "user": {
+                        "properties": {
+                            "givenName": {
+                                "type": "keyword",
+                                "normalizer": "case_insensitive"
+                            },
+                            "id": {
+                                "type": "keyword"
+                            },
+                            "lastName": {
+                                "type": "keyword",
+                                "normalizer": "case_insensitive"
+                            }
+                        }
+                    },
+                    "zoneId": {
+                        "type": "integer"
+                    },
+                    "zoneName": {
+                        "type": "keyword",
+                        "normalizer": "case_insensitive"
+                    }
+                }
+            }
+        },
+        "aliases": {}
+}

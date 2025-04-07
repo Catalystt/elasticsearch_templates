@@ -1,0 +1,95 @@
+{
+        "order": 0,
+        "index_patterns": [
+            "units"
+        ],
+        "settings": {
+            "index": {
+                "analysis": {
+                    "normalizer": {
+                        "case_insensitive": {
+                            "filter": [
+                                "lowercase",
+                                "asciifolding"
+                            ],
+                            "type": "custom",
+                            "char_filter": []
+                        }
+                    }
+                },
+                "number_of_shards": "5",
+                "number_of_replicas": "2"
+            }
+        },
+        "mappings": {
+            "default": {
+                "dynamic": "strict",
+                "properties": {
+                    "city": {
+                        "type": "keyword",
+                        "normalizer": "case_insensitive"
+                    },
+                    "color": {
+                        "type": "keyword",
+                        "normalizer": "case_insensitive"
+                    },
+                    "districtColor": {
+                        "type": "keyword",
+                        "normalizer": "case_insensitive"
+                    },
+                    "districtId": {
+                        "type": "integer"
+                    },
+                    "districtNameEN": {
+                        "type": "keyword",
+                        "normalizer": "case_insensitive"
+                    },
+                    "districtNameFR": {
+                        "type": "keyword",
+                        "normalizer": "case_insensitive"
+                    },
+                    "homePage": {
+                        "type": "keyword",
+                        "normalizer": "case_insensitive"
+                    },
+                    "isActive": {
+                        "type": "boolean"
+                    },
+                    "nameEN": {
+                        "type": "keyword",
+                        "normalizer": "case_insensitive"
+                    },
+                    "nameFR": {
+                        "type": "keyword",
+                        "normalizer": "case_insensitive"
+                    },
+                    "provinceState": {
+                        "type": "keyword",
+                        "normalizer": "case_insensitive"
+                    },
+                    "regionColor": {
+                        "type": "keyword",
+                        "normalizer": "case_insensitive"
+                    },
+                    "regionId": {
+                        "type": "integer"
+                    },
+                    "regionNameEN": {
+                        "type": "keyword",
+                        "normalizer": "case_insensitive"
+                    },
+                    "regionNameFR": {
+                        "type": "keyword",
+                        "normalizer": "case_insensitive"
+                    },
+                    "squadronId": {
+                        "type": "integer"
+                    },
+                    "squadronNo": {
+                        "type": "integer"
+                    }
+                }
+            }
+        },
+        "aliases": {}
+}

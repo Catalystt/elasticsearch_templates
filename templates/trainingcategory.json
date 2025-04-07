@@ -1,0 +1,34 @@
+{
+  "order": 0,
+  "index_patterns": [
+    "trainingcategory"
+  ],
+  "settings": {
+    "index": {
+      "number_of_shards": "5",
+      "number_of_replicas": "2"
+    }
+  },
+  "mappings": {
+    "default": {
+      "dynamic": "true",
+      "properties": {
+        "__v": {
+          "type": "long"
+        },
+        "dateCreated": {
+          "type": "date"
+        },
+        "name": {
+          "type": "keyword"
+        },
+        "refId": {
+          "type": "long"
+        },
+        "regionId": {
+          "type": "long"
+        }
+      }
+    }
+  }
+}

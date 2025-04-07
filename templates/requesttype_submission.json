@@ -1,0 +1,746 @@
+{
+  "index_patterns": [
+    "requesttype_submission"
+  ],
+  "settings": {
+    "index": {
+      "number_of_shards": "5",
+      "number_of_replicas": "2"
+    },
+    "analysis": {
+      "normalizer": {
+        "case_insensitive": {
+          "filter": [
+            "lowercase",
+            "asciifolding"
+          ],
+          "type": "custom",
+          "char_filter": []
+        }
+      }
+    }
+  },
+  "mappings": {
+    "doc": {
+      "dynamic": "true",
+      "properties": {
+        "accommodations": {
+          "properties": {
+            "amountTotal": {
+              "type": "float"
+            },
+            "flattenPerDiem": {
+              "type": "keyword",
+              "normalizer": "case_insensitive"
+            },
+            "flattenPerson": {
+              "type": "keyword",
+              "normalizer": "case_insensitive"
+            },
+            "nightsTotal": {
+              "type": "long"
+            },
+            "perDiemGrandTotal": {
+              "type": "float"
+            },
+            "perDiemTotal": {
+              "type": "long"
+            },
+            "person": {
+              "properties": {
+                "amount": {
+                  "type": "float"
+                },
+                "breakFastRate": {
+                  "type": "long"
+                },
+                "dinnerRate": {
+                  "type": "long"
+                },
+                "id": {
+                  "type": "keyword"
+                },
+                "lunchRate": {
+                  "type": "long"
+                },
+                "name": {
+                  "type": "keyword",
+                  "normalizer": "case_insensitive"
+                },
+                "nights": {
+                  "type": "long"
+                },
+                "rooms": {
+                  "type": "long"
+                },
+                "totalAmount": {
+                  "type": "float"
+                },
+                "totalPerDiem": {
+                  "type": "keyword",
+                  "normalizer": "case_insensitive"
+                }
+              }
+            },
+            "roomsTotal": {
+              "type": "long"
+            }
+          }
+        },
+        "activityFormAssociation": {
+          "properties": {
+            "number": {
+              "type": "keyword",
+              "normalizer": "case_insensitive"
+            },
+            "reportingUnit": {
+              "properties": {
+                "formType": {
+                  "type": "keyword",
+                  "normalizer": "case_insensitive"
+                },
+                "id": {
+                  "type": "long"
+                },
+                "name": {
+                  "type": "keyword",
+                  "normalizer": "case_insensitive"
+                }
+              }
+            },
+            "title": {
+              "type": "keyword",
+              "normalizer": "case_insensitive"
+            }
+          }
+        },
+        "additionalCheckBoxField": {
+          "properties": {
+            "label": {
+              "type": "keyword",
+              "fields": {
+                "keyword": {
+                  "type": "keyword",
+                  "ignore_above": 256
+                }
+              },
+              "normalizer": "case_insensitive"
+            },
+            "value": {
+              "type": "boolean"
+            }
+          }
+        },
+        "additionalNotes": {
+          "type": "keyword",
+          "fields": {
+            "keyword": {
+              "type": "keyword",
+              "ignore_above": 256
+            }
+          },
+          "normalizer": "case_insensitive"
+        },
+        "additionalTextfield": {
+          "properties": {
+            "label": {
+              "type": "keyword",
+              "fields": {
+                "keyword": {
+                  "type": "keyword",
+                  "ignore_above": 256
+                }
+              },
+              "normalizer": "case_insensitive"
+            },
+            "values": {
+              "type": "keyword",
+              "fields": {
+                "keyword": {
+                  "type": "keyword",
+                  "ignore_above": 256
+                }
+              },
+              "normalizer": "case_insensitive"
+            }
+          }
+        },
+        "colorCode": {
+          "type": "keyword",
+          "fields": {
+            "keyword": {
+              "type": "keyword",
+              "ignore_above": 256
+            }
+          },
+          "normalizer": "case_insensitive"
+        },
+        "created": {
+          "type": "date"
+        },
+        "updateDate": {
+          "type": "date"
+        },
+        "expense": {
+          "properties": {
+            "flattenExpense": {
+              "type": "keyword",
+              "normalizer": "case_insensitive"
+            },
+            "flattenPerson": {
+              "type": "keyword",
+              "normalizer": "case_insensitive"
+            },
+            "flattenTotal": {
+              "type": "float"
+            },
+            "persons": {
+              "properties": {
+                "amount": {
+                  "type": "long"
+                },
+                "expense": {
+                  "type": "keyword",
+                  "normalizer": "case_insensitive"
+                },
+                "id": {
+                  "type": "keyword"
+                },
+                "name": {
+                  "type": "keyword",
+                  "normalizer": "case_insensitive"
+                }
+              }
+            }
+          }
+        },
+        "fileUpload": {
+          "properties": {
+            "isImage": {
+              "type": "boolean"
+            },
+            "url": {
+              "type": "keyword"
+            }
+          }
+        },
+        "flattenfileUpload": {
+          "type": "keyword"
+        },
+        "formName": {
+          "type": "keyword",
+          "normalizer": "case_insensitive"
+        },
+        "formType": {
+          "type": "keyword",
+          "normalizer": "case_insensitive"
+        },
+        "formid": {
+          "type": "keyword"
+        },
+        "givenName": {
+          "type": "text",
+          "fields": {
+            "keyword": {
+              "type": "keyword",
+              "ignore_above": 256
+            }
+          }
+        },
+        "id": {
+          "type": "keyword"
+        },
+        "issueStatus": {
+          "type": "keyword",
+          "normalizer": "case_insensitive"
+        },
+        "issueStepId": {
+          "type": "long"
+        },
+        "issueStepNumber": {
+          "type": "long"
+        },
+        "issueType": {
+          "type": "keyword",
+          "normalizer": "case_insensitive"
+        },
+        "lastName": {
+          "type": "text",
+          "fields": {
+            "keyword": {
+              "type": "keyword",
+              "ignore_above": 256
+            }
+          }
+        },
+        "lastUpdatedBy": {
+          "type": "text",
+          "fields": {
+            "keyword": {
+              "type": "keyword",
+              "ignore_above": 256
+            }
+          }
+        },
+        "meals": {
+          "properties": {
+            "breakFastTotal": {
+              "type": "long"
+            },
+            "dinnerTotal": {
+              "type": "long"
+            },
+            "flattenPerDiem": {
+              "type": "keyword",
+              "normalizer": "case_insensitive"
+            },
+            "flattenPerson": {
+              "type": "keyword",
+              "normalizer": "case_insensitive"
+            },
+            "flattenTotal": {
+              "type": "float"
+            },
+            "lunchTotal": {
+              "type": "long"
+            },
+            "person": {
+              "properties": {
+                "amount": {
+                  "type": "long"
+                },
+                "breakFastRate": {
+                  "type": "long"
+                },
+                "dinnerRate": {
+                  "type": "long"
+                },
+                "id": {
+                  "type": "keyword"
+                },
+                "lunchRate": {
+                  "type": "long"
+                },
+                "name": {
+                  "type": "keyword",
+                  "normalizer": "case_insensitive"
+                },
+                "nights": {
+                  "type": "long"
+                },
+                "rooms": {
+                  "type": "long"
+                },
+                "totalAmount": {
+                  "type": "float"
+                },
+                "totalPerDiem": {
+                  "type": "keyword",
+                  "normalizer": "case_insensitive"
+                }
+              }
+            }
+          }
+        },
+        "modified": {
+          "type": "date"
+        },
+        "otherresourcepersonnel": {
+          "properties": {
+            "label": {
+              "type": "keyword",
+              "fields": {
+                "keyword": {
+                  "type": "keyword",
+                  "ignore_above": 256
+                }
+              },
+              "normalizer": "case_insensitive"
+            },
+            "value": {
+              "type": "keyword",
+              "fields": {
+                "keyword": {
+                  "type": "keyword",
+                  "ignore_above": 256
+                }
+              },
+              "normalizer": "case_insensitive"
+            }
+          }
+        },
+        "period": {
+          "properties": {
+            "endDate": {
+              "type": "date"
+            },
+            "isEnableCopy": {
+              "type": "boolean"
+            },
+            "startDate": {
+              "type": "date"
+            }
+          }
+        },
+        "primaryRegionId": {
+          "type": "long"
+        },
+        "regionName": {
+          "type": "keyword",
+          "normalizer": "case_insensitive"
+        },
+        "regionId": {
+          "type": "long"
+        },
+        "zoneName": {
+          "type": "keyword",
+          "normalizer": "case_insensitive"
+        },
+        "zoneId": {
+          "type": "long"
+        },
+        "closedDate": {
+          "type": "date"
+        },
+        "unitName": {
+          "type": "keyword",
+          "normalizer": "case_insensitive"
+        },
+        "resources": {
+          "properties": {
+            "expenseNotes": {
+              "properties": {
+                "notes": {
+                  "type": "keyword",
+                  "fields": {
+                    "keyword": {
+                      "type": "keyword",
+                      "ignore_above": 256
+                    }
+                  },
+                  "normalizer": "case_insensitive"
+                },
+                "uid": {
+                  "type": "keyword",
+                  "normalizer": "case_insensitive"
+                }
+              }
+            },
+            "flattenAdditional": {
+              "type": "keyword",
+              "normalizer": "case_insensitive"
+            },
+            "flattenAssets": {
+              "type": "keyword",
+              "normalizer": "case_insensitive"
+            },
+            "flattenAssetsTotal": {
+              "type": "keyword",
+              "normalizer": "case_insensitive"
+            },
+            "flattenAssetsTotalActual": {
+              "type": "keyword",
+              "normalizer": "case_insensitive"
+            },
+            "flattenAssetsTotalHours": {
+              "type": "keyword",
+              "normalizer": "case_insensitive"
+            },
+            "flattenAssetsTotalOverride": {
+              "type": "keyword",
+              "normalizer": "case_insensitive"
+            },
+            "flattenAssist": {
+              "type": "keyword",
+              "normalizer": "case_insensitive"
+            },
+            "flattenAttend": {
+              "type": "keyword",
+              "normalizer": "case_insensitive"
+            },
+            "flattenCoxwains": {
+              "type": "keyword",
+              "normalizer": "case_insensitive"
+            },
+            "flattenInstruct": {
+              "type": "keyword",
+              "normalizer": "case_insensitive"
+            },
+            "flattenUnits": {
+              "type": "keyword",
+              "normalizer": "case_insensitive"
+            },
+            "timeCreditArr": {
+              "properties": {
+                "totalParticipation": {
+                  "type": "object"
+                }
+              }
+            },
+            "unitArr": {
+              "properties": {
+                "allSelectedPersonnel": {
+                  "properties": {
+                    "asset": {
+                      "properties": {
+                        "GlobalVessel": {
+                          "type": "keyword",
+                          "normalizer": "case_insensitive"
+                        },
+                        "assetTitle": {
+                          "type": "keyword",
+                          "normalizer": "case_insensitive"
+                        },
+                        "id": {
+                          "type": "keyword"
+                        },
+                        "reimbursementRate": {
+                          "type": "keyword"
+                        },
+                        "unitId": {
+                          "type": "keyword"
+                        },
+                        "unitName": {
+                          "type": "keyword",
+                          "normalizer": "case_insensitive"
+                        }
+                      }
+                    },
+                    "participation": {
+                      "type": "text",
+                      "fields": {
+                        "keyword": {
+                          "type": "keyword",
+                          "ignore_above": 256
+                        }
+                      }
+                    },
+                    "personnel": {
+                      "properties": {
+                        "coxswain": {
+                          "type": "boolean"
+                        },
+                        "fullName": {
+                          "type": "keyword",
+                          "fields": {
+                            "keyword": {
+                              "type": "keyword",
+                              "ignore_above": 256
+                            }
+                          },
+                          "normalizer": "case_insensitive"
+                        },
+                        "givenName": {
+                          "type": "keyword",
+                          "normalizer": "case_insensitive"
+                        },
+                        "lastName": {
+                          "type": "keyword",
+                          "normalizer": "case_insensitive"
+                        },
+                        "primarySquadron": {
+                          "type": "long"
+                        },
+                        "regionId": {
+                          "type": "long"
+                        },
+                        "uid": {
+                          "type": "keyword"
+                        }
+                      }
+                    },
+                    "timeCredit": {
+                      "type": "object"
+                    }
+                  }
+                },
+                "label": {
+                  "type": "keyword",
+                  "normalizer": "case_insensitive"
+                },
+                "selectedAssetsAndCoxwain": {
+                  "properties": {
+                    "actualHours": {
+                      "type": "keyword"
+                    },
+                    "asset": {
+                      "properties": {
+                        "GlobalVessel": {
+                          "type": "keyword",
+                          "normalizer": "case_insensitive"
+                        },
+                        "assetTitle": {
+                          "type": "keyword",
+                          "normalizer": "case_insensitive"
+                        },
+                        "id": {
+                          "type": "keyword"
+                        },
+                        "reimbursementRate": {
+                          "type": "keyword"
+                        },
+                        "unitId": {
+                          "type": "keyword"
+                        }
+                      }
+                    },
+                    "hours": {
+                      "type": "keyword"
+                    },
+                    "override": {
+                      "type": "keyword"
+                    },
+                    "rate": {
+                      "type": "keyword"
+                    },
+                    "total": {
+                      "type": "keyword"
+                    }
+                  }
+                },
+                "totals": {
+                  "properties": {
+                    "actualHours": {
+                      "type": "keyword"
+                    },
+                    "hours": {
+                      "type": "keyword"
+                    },
+                    "override": {
+                      "type": "keyword"
+                    },
+                    "rate": {
+                      "type": "keyword"
+                    },
+                    "total": {
+                      "type": "keyword"
+                    }
+                  }
+                },
+                "value": {
+                  "type": "long"
+                }
+              }
+            }
+          }
+        },
+        "templateType": {
+          "type": "keyword",
+          "fields": {
+            "keyword": {
+              "type": "keyword",
+              "ignore_above": 256
+            }
+          },
+          "normalizer": "case_insensitive"
+        },
+        "travel": {
+          "properties": {
+            "flattenPerson": {
+              "type": "keyword",
+              "normalizer": "case_insensitive"
+            },
+            "totalDistance": {
+              "type": "long"
+            },
+            "totalDuration": {
+              "type": "keyword"
+            },
+            "totalOverRideDistance": {
+              "type": "long"
+            },
+            "travelCost": {
+              "type": "long"
+            },
+            "travelDesc": {
+              "properties": {
+                "cost": {
+                  "type": "float"
+                },
+                "distance": {
+                  "type": "keyword"
+                },
+                "duration": {
+                  "type": "keyword"
+                },
+                "durationSec": {
+                  "type": "long"
+                },
+                "endPoint": {
+                  "type": "keyword"
+                },
+                "id": {
+                  "type": "text",
+                  "fields": {
+                    "keyword": {
+                      "type": "keyword",
+                      "ignore_above": 256
+                    }
+                  }
+                },
+                "isAdressSelected": {
+                  "type": "boolean"
+                },
+                "isDestination": {
+                  "type": "boolean"
+                },
+                "isMapClosed": {
+                  "type": "boolean"
+                },
+                "isMapSelected": {
+                  "type": "boolean"
+                },
+                "isOrigin": {
+                  "type": "boolean"
+                },
+                "isRoundTrip": {
+                  "type": "text",
+                  "fields": {
+                    "keyword": {
+                      "type": "keyword",
+                      "ignore_above": 256
+                    }
+                  }
+                },
+                "isroundTrip": {
+                  "type": "keyword"
+                },
+                "overRideDistance": {
+                  "type": "long"
+                },
+                "personAddress": {
+                  "type": "text",
+                  "fields": {
+                    "keyword": {
+                      "type": "keyword",
+                      "ignore_above": 256
+                    }
+                  }
+                },
+                "personName": {
+                  "type": "keyword",
+                  "normalizer": "case_insensitive"
+                },
+                "startingPoint": {
+                  "type": "keyword"
+                },
+                "travelReason": {
+                  "type": "keyword"
+                }
+              }
+            },
+            "travelRate": {
+              "type": "long"
+            }
+          }
+        },
+        "uid": {
+          "type": "keyword"
+        },
+        "unitId": {
+          "type": "long"
+        }
+      }
+    }
+  }
+}

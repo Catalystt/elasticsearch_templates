@@ -1,0 +1,62 @@
+
+   { "order": 0,
+    "index_patterns": [
+      "traininglevel_submission"
+    ],
+    "settings": {
+      "index": {
+        "number_of_shards": "5",
+        "number_of_replicas": "2"
+      }
+    },
+    "mappings": {
+      "doc": {
+    "dynamic": "true",
+     "properties": {
+          "active": {
+            "type": "keyword"
+          },
+          "created": {
+            "type": "date"
+          },
+          "updateDate": {
+            "type": "date"
+          },
+          "description": {
+            "type": "keyword"
+          },
+          "formName": {
+            "type": "keyword"
+          },
+          "formType": {
+            "type": "keyword"
+          },
+          "formid": {
+            "type": "keyword"
+          },
+          "id": {
+            "type": "keyword"
+          },
+          "issueType": {
+            "type": "keyword"
+          },
+          "modified": {
+            "type": "date"
+          },
+          "name": {
+            "type": "keyword"
+          },
+          "regionId": {
+            "type": "long"
+          },
+          "seatimeHours": {
+            "type": "keyword"
+          },
+          "uid": {
+            "type": "keyword"
+          }
+        }
+      }
+    }
+     
+   }

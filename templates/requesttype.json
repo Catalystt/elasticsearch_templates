@@ -1,0 +1,565 @@
+{
+    "index_patterns": [
+        "requesttype"
+    ],
+    "settings": {
+        "index": {
+            "number_of_shards": "5",
+            "number_of_replicas": "2"
+        },
+        "analysis": {
+            "normalizer": {
+                "case_insensitive": {
+                    "filter": [
+                        "lowercase",
+                        "asciifolding"
+                    ],
+                    "type": "custom",
+                    "char_filter": []
+                }
+            }
+        }
+    },
+    "mappings": {
+        "doc": {
+            "dynamic": "true",
+            "properties": {
+                "accommodations": {
+                    "properties": {
+                        "displayPerDiem": {
+                            "type": "boolean"
+                        },
+                        "displayPerDiemTotals": {
+                            "type": "boolean"
+                        },
+                        "displayRateOption": {
+                            "type": "boolean"
+                        },
+                        "displayTotals": {
+                            "type": "boolean"
+                        },
+                        "isEnable": {
+                            "type": "boolean"
+                        },
+                        "isRequired": {
+                            "type": "boolean"
+                        },
+                        "perDiemRate": {
+                            "type": "float"
+                        },
+                        "roomRate": {
+                            "type": "long"
+                        },
+                        "selectedRates": {
+                            "properties": {
+                                "id": {
+                                    "type": "text",
+                                    "fields": {
+                                        "keyword": {
+                                            "type": "keyword",
+                                            "ignore_above": 256
+                                        }
+                                    }
+                                },
+                                "name": {
+                                    "type": "keyword",
+                                    "normalizer": "case_insensitive"
+                                }
+                            }
+                        },
+                        "updatePerDiem": {
+                            "type": "boolean"
+                        }
+                    }
+                },
+                "active": {
+                    "type": "keyword",
+                    "normalizer": "case_insensitive"
+                },
+                "activityFormAssociation": {
+                    "properties": {
+                        "autoGenerate": {
+                            "type": "boolean"
+                        },
+                        "hideConfiguration": {
+                            "type": "boolean"
+                        },
+                        "isEnable": {
+                            "type": "boolean"
+                        },
+                        "number": {
+                            "type": "keyword",
+                            "normalizer": "case_insensitive"
+                        },
+                        "numberOption": {
+                            "type": "keyword",
+                            "normalizer": "case_insensitive"
+                        },
+                        "refernceForm": {
+                            "type": "keyword",
+                            "normalizer": "case_insensitive"
+                        },
+                        "requestTypeMap": {
+                            "type": "boolean"
+                        },
+                        "userDefined": {
+                            "type": "boolean"
+                        }
+                    }
+                },
+                "additionalcomponents": {
+                    "properties": {
+                        "allowMutiple": {
+                            "type": "boolean"
+                        },
+                        "input": {
+                            "type": "boolean"
+                        },
+                        "key": {
+                            "type": "text",
+                            "fields": {
+                                "keyword": {
+                                    "type": "keyword",
+                                    "ignore_above": 256
+                                }
+                            }
+                        },
+                        "label": {
+                            "properties": {
+                                "inputType": {
+                                    "type": "text",
+                                    "fields": {
+                                        "keyword": {
+                                            "type": "keyword",
+                                            "ignore_above": 256
+                                        }
+                                    }
+                                },
+                                "label": {
+                                    "type": "text",
+                                    "fields": {
+                                        "keyword": {
+                                            "type": "keyword",
+                                            "ignore_above": 256
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "panelTitle": {
+                            "type": "text",
+                            "fields": {
+                                "keyword": {
+                                    "type": "keyword",
+                                    "ignore_above": 256
+                                }
+                            }
+                        },
+                        "placeholder": {
+                            "type": "text",
+                            "fields": {
+                                "keyword": {
+                                    "type": "keyword",
+                                    "ignore_above": 256
+                                }
+                            }
+                        },
+                        "type": {
+                            "type": "text",
+                            "fields": {
+                                "keyword": {
+                                    "type": "keyword",
+                                    "ignore_above": 256
+                                }
+                            }
+                        }
+                    }
+                },
+                "categories": {
+                    "type": "keyword",
+                    "normalizer": "case_insensitive"
+                },
+                "colorPicker": {
+                    "type": "keyword",
+                    "normalizer": "case_insensitive"
+                },
+                "created": {
+                    "type": "date"
+                },
+                "description": {
+                    "type": "keyword",
+                    "normalizer": "case_insensitive"
+                },
+                "expense": {
+                    "properties": {
+                        "hideConfiguration": {
+                            "type": "boolean"
+                        },
+                        "isAllowMultiple": {
+                            "type": "boolean"
+                        },
+                        "isDisabledMultiPersonnel": {
+                            "type": "boolean"
+                        },
+                        "isEnable": {
+                            "type": "boolean"
+                        }
+                    }
+                },
+                "formName": {
+                    "type": "text",
+                    "fields": {
+                        "keyword": {
+                            "type": "keyword",
+                            "ignore_above": 256
+                        }
+                    }
+                },
+                "formRef": {
+                    "type": "text",
+                    "fields": {
+                        "keyword": {
+                            "type": "keyword",
+                            "ignore_above": 256
+                        }
+                    }
+                },
+                "formRefId": {
+                    "type": "text",
+                    "fields": {
+                        "keyword": {
+                            "type": "keyword",
+                            "ignore_above": 256
+                        }
+                    }
+                },
+                "formid": {
+                    "type": "text",
+                    "fields": {
+                        "keyword": {
+                            "type": "keyword",
+                            "ignore_above": 256
+                        }
+                    }
+                },
+                "id": {
+                    "type": "text",
+                    "fields": {
+                        "keyword": {
+                            "type": "keyword",
+                            "ignore_above": 256
+                        }
+                    }
+                },
+                "instructions": {
+                    "type": "keyword",
+                    "normalizer": "case_insensitive"
+                },
+                "meals": {
+                    "properties": {
+                        "UpdateRates": {
+                            "type": "boolean"
+                        },
+                        "breakFastRate": {
+                            "type": "float"
+                        },
+                        "dinnerRate": {
+                            "type": "float"
+                        },
+                        "displayRates": {
+                            "type": "boolean"
+                        },
+                        "displayTotals": {
+                            "type": "boolean"
+                        },
+                        "isEnable": {
+                            "type": "boolean"
+                        },
+                        "isRequired": {
+                            "type": "boolean"
+                        },
+                        "lunchRate": {
+                            "type": "float"
+                        },
+                        "selectedRates": {
+                            "properties": {
+                                "id": {
+                                    "type": "text",
+                                    "fields": {
+                                        "keyword": {
+                                            "type": "keyword",
+                                            "ignore_above": 256
+                                        }
+                                    }
+                                },
+                                "name": {
+                                    "type": "text",
+                                    "fields": {
+                                        "keyword": {
+                                            "type": "keyword",
+                                            "ignore_above": 256
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "modified": {
+                    "type": "date"
+                },
+                "otherresourcepersonnel": {
+                    "properties": {
+                        "hideConfiguration": {
+                            "type": "boolean"
+                        },
+                        "isEnableOtherResorces": {
+                            "type": "boolean"
+                        }
+                    }
+                },
+                "period": {
+                    "properties": {
+                        "isMultipleDates": {
+                            "type": "boolean"
+                        },
+                        "isShowDuration": {
+                            "type": "boolean"
+                        }
+                    }
+                },
+                "primaryRegionId": {
+                    "type": "long"
+                },
+                "regionId": {
+                    "type": "long"
+                },
+                "resources": {
+                    "properties": {
+                        "courseStructure": {
+                            "properties": {
+                                "classroomSessions": {
+                                    "type": "text",
+                                    "fields": {
+                                        "keyword": {
+                                            "type": "keyword",
+                                            "ignore_above": 256
+                                        }
+                                    }
+                                },
+                                "exercises": {
+                                    "type": "text",
+                                    "fields": {
+                                        "keyword": {
+                                            "type": "keyword",
+                                            "ignore_above": 256
+                                        }
+                                    }
+                                },
+                                "instruction": {
+                                    "type": "text",
+                                    "fields": {
+                                        "keyword": {
+                                            "type": "keyword",
+                                            "ignore_above": 256
+                                        }
+                                    }
+                                },
+                                "simulatorSessions": {
+                                    "type": "text",
+                                    "fields": {
+                                        "keyword": {
+                                            "type": "keyword",
+                                            "ignore_above": 256
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "enableMultiAsset": {
+                            "type": "boolean"
+                        },
+                        "enableMultiCoxwain": {
+                            "type": "boolean"
+                        },
+                        "enableTimeCreditAdj": {
+                            "type": "boolean"
+                        },
+                        "enableTimeCreditCopy": {
+                            "type": "boolean"
+                        },
+                        "enableUnitAsset": {
+                            "type": "boolean"
+                        },
+                        "fieldName": {
+                            "type": "text",
+                            "fields": {
+                                "keyword": {
+                                    "type": "keyword",
+                                    "ignore_above": 256
+                                }
+                            }
+                        },
+                        "hideAlert": {
+                            "type": "text",
+                            "fields": {
+                                "keyword": {
+                                    "type": "keyword",
+                                    "ignore_above": 256
+                                }
+                            }
+                        },
+                        "hideClassStructure": {
+                            "type": "boolean"
+                        },
+                        "hideConfiguration": {
+                            "type": "boolean"
+                        },
+                        "hideSessionCounts": {
+                            "type": "boolean"
+                        },
+                        "input": {
+                            "type": "boolean"
+                        },
+                        "isAllowMultipleAsset": {
+                            "type": "text",
+                            "fields": {
+                                "keyword": {
+                                    "type": "keyword",
+                                    "ignore_above": 256
+                                }
+                            }
+                        },
+                        "isEnable": {
+                            "type": "boolean"
+                        },
+                        "isRequestType": {
+                            "type": "text",
+                            "fields": {
+                                "keyword": {
+                                    "type": "keyword",
+                                    "ignore_above": 256
+                                }
+                            }
+                        },
+                        "isShowAssetList": {
+                            "type": "text",
+                            "fields": {
+                                "keyword": {
+                                    "type": "keyword",
+                                    "ignore_above": 256
+                                }
+                            }
+                        },
+                        "isShowCalc": {
+                            "type": "boolean"
+                        },
+                        "isShowPersonnel": {
+                            "type": "text",
+                            "fields": {
+                                "keyword": {
+                                    "type": "keyword",
+                                    "ignore_above": 256
+                                }
+                            }
+                        },
+                        "showAdditionalResources": {
+                            "type": "boolean"
+                        },
+                        "showAssetCoxwain": {
+                            "type": "boolean"
+                        },
+                        "showAssetLinkage": {
+                            "type": "boolean"
+                        },
+                        "showAssetRate": {
+                            "type": "boolean"
+                        },
+                        "showParticipationLinkage": {
+                            "type": "boolean"
+                        },
+                        "showPassFailOpt": {
+                            "type": "boolean"
+                        },
+                        "showTimeCreditResource": {
+                            "type": "boolean"
+                        },
+                        "showTimeCreditTotal": {
+                            "type": "boolean"
+                        },
+                        "timeCreditArr": {
+                            "properties": {
+                                "participation": {
+                                    "type": "object"
+                                },
+                                "totalParticipation": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "timeType": {
+                    "type": "keyword",
+                    "normalizer": "case_insensitive"
+                },
+                "title": {
+                    "type": "keyword",
+                    "normalizer": "case_insensitive"
+                },
+                "travel": {
+                    "properties": {
+                        "hideConfiguration": {
+                            "type": "boolean"
+                        },
+                        "isEnable": {
+                            "type": "boolean"
+                        },
+                        "isRequired": {
+                            "type": "boolean"
+                        },
+                        "isShowRates": {
+                            "type": "boolean"
+                        },
+                        "selectedRates": {
+                            "properties": {
+                                "id": {
+                                    "type": "text",
+                                    "fields": {
+                                        "keyword": {
+                                            "type": "keyword",
+                                            "ignore_above": 256
+                                        }
+                                    }
+                                },
+                                "name": {
+                                    "type": "text",
+                                    "fields": {
+                                        "keyword": {
+                                            "type": "keyword",
+                                            "ignore_above": 256
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "travelRate": {
+                            "type": "float"
+                        }
+                    }
+                },
+                "uid": {
+                    "type": "keyword",
+                    "normalizer": "case_insensitive"
+                },
+                "unitId": {
+                    "type": "long"
+                },
+                "workflow": {
+                    "type": "keyword",
+                    "normalizer": "case_insensitive"
+                }
+            }
+        }
+    }
+}

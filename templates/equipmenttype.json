@@ -1,0 +1,160 @@
+{
+        "order": 0,
+        "index_patterns": [
+            "equipmenttype"
+        ],
+        "settings": {
+            "index": {
+                "analysis": {
+                    "normalizer": {
+                        "case_insensitive": {
+                            "filter": [
+                                "lowercase",
+                                "asciifolding"
+                            ],
+                            "type": "custom",
+                            "char_filter": []
+                        }
+                    }
+                },
+                "number_of_shards": "5",
+                "number_of_replicas": "2"
+            }
+        },
+        "mappings": {
+            "doc": {
+                "dynamic": "true",
+                "properties": {
+                    "addAdditionalFields": {
+                        "properties": {
+                            "input": {
+                                "type": "boolean"
+                            },
+                            "key": {
+                                "type": "keyword",
+                                "normalizer": "case_insensitive"
+                            },
+                            "label": {
+                                "properties": {
+                                    "inputType": {
+                                        "type": "keyword",
+                                        "normalizer": "case_insensitive"
+                                    },
+                                    "label": {
+                                        "type": "keyword",
+                                        "normalizer": "case_insensitive"
+                                    }
+                                }
+                            },
+                            "panelTitle": {
+                                "type": "keyword",
+                                "normalizer": "case_insensitive"
+                            },
+                            "placeholder": {
+                                "type": "keyword",
+                                "normalizer": "case_insensitive"
+                            },
+                            "type": {
+                                "type": "keyword",
+                                "normalizer": "case_insensitive"
+                            }
+                        }
+                    },
+                    "created": {
+                        "type": "date"
+                    },
+                    "description": {
+                        "type": "keyword",
+                        "normalizer": "case_insensitive"
+                    },
+                    "formName": {
+                        "type": "keyword",
+                        "normalizer": "case_insensitive"
+                    },
+                    "formRef": {
+                        "type": "keyword",
+                        "normalizer": "case_insensitive"
+                    },
+                    "formRefId": {
+                        "type": "keyword",
+                        "normalizer": "case_insensitive"
+                    },
+                    "formType": {
+                        "type": "keyword",
+                        "normalizer": "case_insensitive"
+                    },
+                    "formid": {
+                        "type": "keyword",
+                        "normalizer": "case_insensitive"
+                    },
+                    "id": {
+                        "type": "keyword",
+                        "normalizer": "case_insensitive"
+                    },
+                    "inventory": {
+                        "type": "long"
+                    },
+                    "modified": {
+                        "type": "date"
+                    },
+                    "name": {
+                        "type": "keyword",
+                        "normalizer": "case_insensitive"
+                    },
+                    "notificationAlert": {
+                        "properties": {
+                            "alertDate": {
+                                "type": "date"
+                            },
+                            "expiryDate": {
+                                "type": "date"
+                            },
+                            "hideConfiguration": {
+                                "type": "boolean"
+                            },
+                            "isAllowMultiple": {
+                                "type": "boolean"
+                            },
+                            "isEnableAlert": {
+                                "type": "boolean"
+                            },
+                            "isEnableExpiry": {
+                                "type": "boolean"
+                            },
+                            "isEnablePersonnel": {
+                                "type": "boolean"
+                            },
+                            "isEnableRole": {
+                                "type": "boolean"
+                            },
+                            "isEnableSpecific": {
+                                "type": "boolean"
+                            }
+                        }
+                    },
+                    "primaryRegionId": {
+                        "type": "long"
+                    },
+                    "regionId": {
+                        "type": "long"
+                    },
+                    "status": {
+                        "type": "keyword",
+                        "normalizer": "case_insensitive"
+                    },
+                    "type": {
+                        "type": "keyword",
+                        "normalizer": "case_insensitive"
+                    },
+                    "uid": {
+                        "type": "keyword",
+                        "normalizer": "case_insensitive"
+                    },
+                    "usedInventory": {
+                        "type": "long"
+                    }
+                }
+            }
+        },
+        "aliases": {}
+}

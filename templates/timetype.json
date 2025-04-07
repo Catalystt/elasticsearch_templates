@@ -1,0 +1,59 @@
+{
+        "order": 0,
+        "index_patterns": [
+            "timetype"
+        ],
+        "settings": {
+            "index": {
+                "analysis": {
+                    "normalizer": {
+                        "case_insensitive": {
+                            "filter": [
+                                "lowercase",
+                                "asciifolding"
+                            ],
+                            "type": "custom",
+                            "char_filter": []
+                        }
+                    }
+                },
+                "number_of_shards": "5",
+                "number_of_replicas": "2"
+            }
+        },
+        "mappings": {
+            "default": {
+                "dynamic": "true",
+                "properties": {
+                    "category": {
+                        "type": "keyword",
+                        "normalizer": "case_insensitive"
+                    },
+                    "duration_Sea Time": {
+                        "type": "long"
+                    },
+                    "duration_seaTime": {
+                        "type": "long"
+                    },
+                    "duration_trainingTime": {
+                        "type": "long"
+                    },
+                    "duration_trainingType": {
+                        "type": "long"
+                    },
+                    "name": {
+                        "type": "keyword",
+                        "normalizer": "case_insensitive"
+                    },
+                    "regionId": {
+                        "type": "long"
+                    },
+                    "type": {
+                        "type": "keyword",
+                        "normalizer": "case_insensitive"
+                    }
+                }
+            }
+        },
+        "aliases": {}
+}

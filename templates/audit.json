@@ -1,0 +1,169 @@
+{
+        "order": 0,
+        "index_patterns": [
+            "audit"
+        ],
+        "settings": {
+            "index": {
+                "analysis": {
+                    "normalizer": {
+                        "case_insensitive": {
+                            "filter": [
+                                "lowercase",
+                                "asciifolding"
+                            ],
+                            "type": "custom",
+                            "char_filter": []
+                        }
+                    }
+                },
+                "number_of_shards": "5",
+                "number_of_replicas": "2"
+            }
+        },
+        "mappings": {
+            "doc": {
+                "dynamic": "true",
+                "properties": {
+                    "@timestamp": {
+                        "type": "date"
+                    },
+                    "@version": {
+                        "type": "keyword",
+                        "normalizer": "case_insensitive"
+                    },
+                    "attributes": {
+                        "properties": {
+                            "assetId": {
+                                "type": "keyword",
+                                "normalizer": "case_insensitive"
+                            },
+                            "category": {
+                                "type": "keyword",
+                                "normalizer": "case_insensitive"
+                            },
+                            "date": {
+                                "type": "date"
+                            },
+                            "field": {
+                                "type": "keyword",
+                                "normalizer": "case_insensitive"
+                            },
+                            "form": {
+                                "type": "keyword",
+                                "normalizer": "case_insensitive"
+                            },
+                            "formId": {
+                                "type": "keyword",
+                                "normalizer": "case_insensitive"
+                            },
+                            "given_name": {
+                                "type": "keyword",
+                                "normalizer": "case_insensitive"
+                            },
+                            "key": {
+                                "type": "keyword",
+                                "normalizer": "case_insensitive"
+                            },
+                            "last_name": {
+                                "type": "keyword",
+                                "normalizer": "case_insensitive"
+                            },
+                            "log": {
+                                "type": "keyword",
+                                "normalizer": "case_insensitive"
+                            },
+                            "newData": {
+                                "type": "keyword",
+                                "normalizer": "case_insensitive"
+                            },
+                            "notes": {
+                                "type": "keyword",
+                                "normalizer": "case_insensitive"
+                            },
+                            "oldData": {
+                                "type": "keyword",
+                                "normalizer": "case_insensitive"
+                            },
+                            "people": {
+                                "type": "keyword",
+                                "normalizer": "case_insensitive"
+                            },
+                            "regionId": {
+                                "type": "keyword"
+                            },
+                            "submission": {
+                                "type": "keyword",
+                                "normalizer": "case_insensitive"
+                            },
+                            "submissionId": {
+                                "type": "keyword",
+                                "normalizer": "case_insensitive"
+                            },
+                            "unit": {
+                                "type": "keyword",
+                                "normalizer": "case_insensitive"
+                            },
+                            "unitId": {
+                                "type": "long"
+                            },
+                            "user": {
+                                "type": "keyword",
+                                "normalizer": "case_insensitive"
+                            },
+                            "userId": {
+                                "type": "keyword"
+                            },
+                            "zoneId": {
+                                "type": "keyword"
+                            }
+                        }
+                    },
+                    "audit": {
+                        "type": "keyword",
+                        "normalizer": "case_insensitive"
+                    },
+                    "auditType": {
+                        "type": "keyword",
+                        "normalizer": "case_insensitive"
+                    },
+                    "from": {
+                        "type": "keyword",
+                        "normalizer": "case_insensitive"
+                    },
+                    "message": {
+                        "type": "keyword",
+                        "normalizer": "case_insensitive"
+                    },
+                    "notify": {
+                        "type": "keyword",
+                        "normalizer": "case_insensitive"
+                    },
+                    "origin": {
+                        "type": "keyword",
+                        "normalizer": "case_insensitive"
+                    },
+                    "tags": {
+                        "type": "keyword",
+                        "normalizer": "case_insensitive"
+                    },
+                    "template": {
+                        "type": "keyword",
+                        "normalizer": "case_insensitive"
+                    },
+                    "type": {
+                        "type": "keyword",
+                        "normalizer": "case_insensitive"
+                    },
+                    "uid": {
+                        "type": "keyword"
+                    },
+                    "userActivityType": {
+                        "type": "keyword",
+                        "normalizer": "case_insensitive"
+                    }
+                }
+            }
+        },
+        "aliases": {}
+}

@@ -1,0 +1,136 @@
+{
+    "order": 0,
+    "index_patterns": [
+        "trainingitem"
+    ],
+    "settings": {
+        "index": {
+            "analysis": {
+                "normalizer": {
+                    "case_insensitive": {
+                        "filter": [
+                            "lowercase",
+                            "asciifolding"
+                        ],
+                        "type": "custom",
+                        "char_filter": []
+                    }
+                }
+            },
+            "number_of_shards": "5",
+            "number_of_replicas": "2"
+        }
+    },
+    "mappings": {
+        "doc": {
+            "dynamic": "true",
+            "properties": {
+                "active": {
+                    "type": "keyword",
+                    "normalizer": "case_insensitive"
+                },
+                "attitude": {
+                    "type": "keyword",
+                     "normalizer": "case_insensitive"
+                },
+                "created": {
+                    "type": "date"
+                },
+                "description": {
+                    "type": "keyword",
+                     "normalizer": "case_insensitive"
+                },
+                "evaluationCriteria": {
+                    "type": "keyword",
+                     "normalizer": "case_insensitive"
+                },
+                "formName": {
+                    "type": "keyword"
+                },
+                "formid": {
+                    "type": "keyword"
+                },
+                "id": {
+                    "type": "keyword"
+                },
+                "knowledge": {
+                    "type": "keyword",
+                     "normalizer": "case_insensitive"
+                },
+                "levelName": {
+                    "type": "keyword",
+                     "normalizer": "case_insensitive"
+                },
+                "levelSubmissionId": {
+                    "type": "keyword"
+                },
+                "modified": {
+                    "type": "date"
+                },
+                "name": {
+                    "type": "keyword",
+                     "normalizer": "case_insensitive"
+                },
+                "optional": {
+                    "type": "keyword",
+                     "normalizer": "case_insensitive"
+                },
+                "primaryRegionId": {
+                    "type": "long"
+                },
+                "refId": {
+                    "type": "long"
+                },
+                "regionId": {
+                    "type": "long"
+                },
+                "relatedTrainingTypes": {
+                    "properties": {
+                        "label": {
+                            "type": "keyword",
+                             "normalizer": "case_insensitive"
+                        }
+                    }
+                },
+                "requiredSignoffCert": {
+                    "properties": {
+                        "label": {
+                            "type": "keyword",
+                             "normalizer": "case_insensitive"
+                        },
+                        "value": {
+                            "type": "keyword"
+                        }
+                    }
+                },
+                "requiredSignoffLevel": {
+                    "properties": {
+                        "label": {
+                            "type": "keyword",
+                             "normalizer": "case_insensitive"
+                        },
+                        "value": {
+                            "type": "keyword"
+                        }
+                    }
+                },
+                "skills": {
+                    "type": "keyword",
+                     "normalizer": "case_insensitive"
+                },
+                "trainingLevel": {
+                    "properties": {
+                        "label": {
+                            "type": "keyword",
+                             "normalizer": "case_insensitive"
+                        },
+                        "value": {
+                            "type": "keyword"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "aliases": {}
+}

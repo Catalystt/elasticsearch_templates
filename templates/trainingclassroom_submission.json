@@ -1,0 +1,328 @@
+{
+  "order": 0,
+  "index_patterns": [
+    "trainingclassroom_submission"
+  ],
+  "settings": {
+    "index": {
+        "number_of_shards": "5",
+        "number_of_replicas": "2"
+    }
+},
+
+  "mappings": {
+    "doc": {
+      "dynamic": "true",
+      "properties": {
+        "courseDurationRange": {
+          "properties": {
+            "endDate": {
+              "type": "date"
+            },
+            "endTime": {
+              "type": "keyword"
+            },
+            "startDate": {
+              "type": "date"
+            },
+            "startTime": {
+              "type": "keyword"
+            }
+          }
+        },
+        "created": {
+          "type": "date"
+        },
+        "updateDate": {
+          "type": "date"
+        },
+        "dateCreated": {
+          "type": "date"
+        },
+        "facilitator": {
+          "properties": {
+            "label": {
+              "type": "keyword"
+            },
+            "value": {
+              "type": "keyword"
+            }
+          }
+        },
+        "formName": {
+          "type": "keyword"
+        },
+        "formParentId": {
+          "type": "keyword"
+        },
+        "formType": {
+          "type": "keyword"
+        },
+        "formid": {
+          "type": "keyword"
+        },
+        "id": {
+          "type": "keyword"
+        },
+        "issueId": {
+          "type": "keyword"
+        },
+        "issueStatus": {
+          "type": "keyword"
+        },
+        "issueType": {
+          "type": "keyword"
+        },
+        "modified": {
+          "type": "date"
+        },
+        "name": {
+          "type": "keyword"
+        },
+        "notes": {
+          "type": "keyword"
+        },
+        "number": {
+          "type": "keyword"
+        },
+        "primaryRegionId": {
+          "type": "long"
+        },
+        "regionId": {
+          "type": "long"
+        },
+        "trainingType": {
+          "properties": {
+            "label": {
+              "type": "keyword"
+            },
+            "value": {
+              "type": "keyword"
+            }
+          }
+        },
+        "uid": {
+          "type": "keyword"
+        },
+        "unitId": {
+          "type": "long"
+        },
+        "userCourseConfig": {
+          "properties": {
+            "additional": {
+              "properties": {
+                "asset": {
+                  "properties": {
+                    "assetTitle": {
+                      "type": "keyword"
+                    },
+                    "id": {
+                      "type": "keyword"
+                    },
+                    "unitId": {
+                      "type": "keyword"
+                    }
+                  }
+                },
+                "personnel": {
+                  "properties": {
+                    "givenName": {
+                      "type": "keyword"
+                    },
+                    "lastName": {
+                      "type": "keyword"
+                    },
+                    "primarySquadron": {
+                      "type": "long"
+                    },
+                    "regionId": {
+                      "type": "long"
+                    },
+                    "uid": {
+                      "type": "keyword"
+                    }
+                  }
+                }
+              }
+            },
+            "courseStructure": {
+              "properties": {
+                "classroomSessions": {
+                  "type": "keyword"
+                },
+                "exercises": {
+                  "type": "keyword"
+                },
+                "simulatorSessions": {
+                  "type": "keyword"
+                }
+              }
+            },
+            "unitArr": {
+              "properties": {
+                "allSelectedPersonnel": {
+                  "properties": {
+                    "asset": {
+                      "properties": {
+                        "assetTitle": {
+                          "type": "keyword"
+                        },
+                        "id": {
+                          "type": "keyword"
+                        },
+                        "unitId": {
+                          "type": "keyword"
+                        }
+                      }
+                    },
+                    "participation": {
+                      "type": "keyword"
+                    },
+                    "passFail": {
+                      "type": "keyword"
+                    },
+                    "personnel": {
+                      "properties": {
+                        "givenName": {
+                          "type": "keyword"
+                        },
+                        "lastName": {
+                          "type": "keyword"
+                        },
+                        "primarySquadron": {
+                          "type": "long"
+                        },
+                        "regionId": {
+                          "type": "long"
+                        },
+                        "uid": {
+                          "type": "keyword"
+                        }
+                      }
+                    },
+                    "timeCredit": {
+                      "properties": {
+                        "Assist": {
+                          "properties": {
+                            "hours": {
+                              "type": "keyword"
+                            },
+                            "tType": {
+                              "properties": {
+                                "_id": {
+                                  "type": "keyword"
+                                },
+                                "duration_seaTime": {
+                                  "type": "long"
+                                },
+                                "duration_trainingTime": {
+                                  "type": "long"
+                                },
+                                "name": {
+                                  "type": "keyword"
+                                },
+                                "regionId": {
+                                  "type": "long"
+                                },
+                                "type": {
+                                  "type": "keyword"
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "Attend": {
+                          "properties": {
+                            "hours": {
+                              "type": "keyword"
+                            },
+                            "tType": {
+                              "properties": {
+                                "_id": {
+                                  "type": "keyword"
+                                },
+                                "duration_seaTime": {
+                                  "type": "long"
+                                },
+                                "duration_trainingTime": {
+                                  "type": "long"
+                                },
+                                "name": {
+                                  "type": "keyword"
+                                },
+                                "regionId": {
+                                  "type": "long"
+                                },
+                                "type": {
+                                  "type": "keyword"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "label": {
+                  "type": "keyword"
+                },
+                "selectedAssetsAndCoxwain": {
+                  "properties": {
+                    "asset": {
+                      "properties": {
+                        "assetTitle": {
+                          "type": "keyword"
+                        },
+                        "id": {
+                          "type": "keyword"
+                        },
+                        "unitId": {
+                          "type": "keyword"
+                        }
+                      }
+                    },
+                    "coxwain": {
+                      "type": "object"
+                    },
+                    "hours": {
+                      "type": "keyword"
+                    },
+                    "override": {
+                      "type": "keyword"
+                    },
+                    "rate": {
+                      "type": "keyword"
+                    },
+                    "total": {
+                      "type": "keyword"
+                    }
+                  }
+                },
+                "totals": {
+                  "properties": {
+                    "hours": {
+                      "type": "keyword"
+                    },
+                    "override": {
+                      "type": "keyword"
+                    },
+                    "rate": {
+                      "type": "keyword"
+                    },
+                    "total": {
+                      "type": "keyword"
+                    }
+                  }
+                },
+                "value": {
+                  "type": "long"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

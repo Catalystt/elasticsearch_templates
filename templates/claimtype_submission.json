@@ -1,0 +1,505 @@
+{
+    "index_patterns": [
+        "claimtype_submission"
+    ],
+    "settings": {
+        "index": {
+            "number_of_shards": "5",
+            "number_of_replicas": "2"
+        },
+        "analysis": {
+            "normalizer": {
+                "case_insensitive": {
+                    "filter": [
+                        "lowercase",
+                        "asciifolding"
+                    ],
+                    "type": "custom",
+                    "char_filter": []
+                }
+            }
+        }
+    },
+    "mappings": {
+        "doc": {
+            "dynamic": "true",
+            "properties": {
+                "accommodations": {
+                    "properties": {
+                        "amountTotal": {
+                            "type": "float"
+                        },
+                        "flattenPerDiem": {
+                            "type": "keyword"
+                        },
+                        "flattenPerson": {
+                            "type": "keyword"
+                        },
+                        "nightsTotal": {
+                            "type": "long"
+                        },
+                        "perDiemGrandTotal": {
+                            "type": "float"
+                        },
+                        "perDiemTotal": {
+                            "type": "long"
+                        },
+                        "person": {
+                            "properties": {
+                                "breakFastRate": {
+                                    "type": "long"
+                                },
+                                "dinnerRate": {
+                                    "type": "long"
+                                },
+                                "id": {
+                                    "type": "keyword"
+                                },
+                                "lunchRate": {
+                                    "type": "long"
+                                },
+                                "name": {
+                                    "type": "keyword"
+                                },
+                                "nights": {
+                                    "type": "long"
+                                },
+                                "rooms": {
+                                    "type": "long"
+                                },
+                                "totalAmount": {
+                                    "type": "float"
+                                },
+                                "totalPerDiem": {
+                                    "type": "keyword"
+                                }
+                            }
+                        },
+                        "roomsTotal": {
+                            "type": "long"
+                        }
+                    }
+                },
+                "activityFormAssociation": {
+                    "properties": {
+                        "associatedRequest": {
+                            "properties": {
+                                "id": {
+                                    "type": "text",
+                                    "fields": {
+                                        "keyword": {
+                                            "type": "keyword",
+                                            "ignore_above": 256
+                                        }
+                                    }
+                                },
+                                "name": {
+                                    "type": "text",
+                                    "fields": {
+                                        "keyword": {
+                                            "type": "keyword",
+                                            "ignore_above": 256
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "number": {
+                            "type": "keyword"
+                        },
+                        "reportingUnit": {
+                            "properties": {
+                                "formType": {
+                                    "type": "keyword"
+                                },
+                                "id": {
+                                    "type": "long"
+                                },
+                                "name": {
+                                    "type": "keyword"
+                                }
+                            }
+                        },
+                        "title": {
+                            "type": "keyword"
+                        }
+                    }
+                },
+                "additionalNotes": {
+                    "type": "text",
+                    "fields": {
+                        "keyword": {
+                            "type": "keyword",
+                            "ignore_above": 256
+                        }
+                    }
+                },
+                "created": {
+                    "type": "date"
+                },
+                "expense": {
+                    "properties": {
+                        "flattenExpense": {
+                            "type": "keyword"
+                        },
+                        "flattenPerson": {
+                            "type": "keyword"
+                        },
+                        "persons": {
+                            "properties": {
+                                "amount": {
+                                    "type": "long"
+                                },
+                                "expense": {
+                                    "type": "keyword"
+                                },
+                                "id": {
+                                    "type": "keyword"
+                                },
+                                "name": {
+                                    "type": "keyword"
+                                }
+                            }
+                        }
+                    }
+                },
+                "fileUpload": {
+                    "properties": {
+                        "isImage": {
+                            "type": "boolean"
+                        },
+                        "url": {
+                            "type": "keyword"
+                        }
+                    }
+                },
+                "flattenfileUpload": {
+                    "type": "keyword"
+                },
+                "formName": {
+                    "type": "keyword"
+                },
+                "formType": {
+                    "type": "keyword"
+                },
+                "formid": {
+                    "type": "keyword"
+                },
+                "id": {
+                    "type": "keyword"
+                },
+                "issueStatus": {
+                    "type": "text",
+                    "fields": {
+                        "keyword": {
+                            "type": "keyword",
+                            "ignore_above": 256
+                        }
+                    }
+                },
+                "issueStepId": {
+                    "type": "long"
+                },
+                "issueType": {
+                    "type": "keyword"
+                },
+                "meals": {
+                    "properties": {
+                        "breakFastTotal": {
+                            "type": "long"
+                        },
+                        "dinnerTotal": {
+                            "type": "long"
+                        },
+                        "flattenPerDiem": {
+                            "type": "keyword"
+                        },
+                        "flattenPerson": {
+                            "type": "keyword"
+                        },
+                        "lunchTotal": {
+                            "type": "long"
+                        },
+                        "person": {
+                            "properties": {
+                                "breakFastRate": {
+                                    "type": "long"
+                                },
+                                "dinnerRate": {
+                                    "type": "long"
+                                },
+                                "id": {
+                                    "type": "keyword"
+                                },
+                                "lunchRate": {
+                                    "type": "long"
+                                },
+                                "name": {
+                                    "type": "keyword"
+                                },
+                                "nights": {
+                                    "type": "long"
+                                },
+                                "rooms": {
+                                    "type": "long"
+                                },
+                                "totalAmount": {
+                                    "type": "float"
+                                },
+                                "totalPerDiem": {
+                                    "type": "keyword"
+                                }
+                            }
+                        }
+                    }
+                },
+                "modified": {
+                    "type": "date"
+                },
+                "period": {
+                    "properties": {
+                        "endDate": {
+                            "type": "date"
+                        },
+                        "startDate": {
+                            "type": "date"
+                        }
+                    }
+                },
+                "primaryRegionId": {
+                    "type": "long"
+                },
+                "regionId": {
+                    "type": "long"
+                },
+                "resources": {
+                    "properties": {
+                        "flattenAdditional": {
+                            "type": "keyword"
+                        },
+                        "flattenAssets": {
+                            "type": "keyword"
+                        },
+                        "flattenAssetsTotal": {
+                            "type": "keyword"
+                        },
+                        "flattenAssetsTotalActual": {
+                            "type": "keyword"
+                        },
+                        "flattenAssetsTotalHours": {
+                            "type": "keyword"
+                        },
+                        "flattenAssetsTotalOverride": {
+                            "type": "keyword"
+                        },
+                        "flattenAssist": {
+                            "type": "keyword"
+                        },
+                        "flattenAttend": {
+                            "type": "keyword"
+                        },
+                        "flattenCoxwains": {
+                            "type": "keyword"
+                        },
+                        "flattenInstruct": {
+                            "type": "keyword"
+                        },
+                        "flattenUnits": {
+                            "type": "keyword"
+                        },
+                        "timeCreditArr": {
+                            "properties": {
+                                "totalParticipation": {
+                                    "type": "object"
+                                }
+                            }
+                        },
+                        "unitArr": {
+                            "properties": {
+                                "allSelectedPersonnel": {
+                                    "properties": {
+                                        "asset": {
+                                            "properties": {
+                                                "GlobalVessel": {
+                                                    "type": "text",
+                                                    "fields": {
+                                                        "keyword": {
+                                                            "type": "keyword",
+                                                            "ignore_above": 256
+                                                        }
+                                                    }
+                                                },
+                                                "assetTitle": {
+                                                    "type": "keyword"
+                                                },
+                                                "id": {
+                                                    "type": "keyword"
+                                                },
+                                                "reimbursementRate": {
+                                                    "type": "keyword"
+                                                },
+                                                "unitId": {
+                                                    "type": "keyword"
+                                                }
+                                            }
+                                        },
+                                        "personnel": {
+                                            "properties": {
+                                                "fullName": {
+                                                    "type": "text",
+                                                    "fields": {
+                                                        "keyword": {
+                                                            "type": "keyword",
+                                                            "ignore_above": 256
+                                                        }
+                                                    }
+                                                },
+                                                "givenName": {
+                                                    "type": "keyword"
+                                                },
+                                                "lastName": {
+                                                    "type": "keyword"
+                                                },
+                                                "primarySquadron": {
+                                                    "type": "long"
+                                                },
+                                                "regionId": {
+                                                    "type": "long"
+                                                },
+                                                "uid": {
+                                                    "type": "keyword"
+                                                }
+                                            }
+                                        },
+                                        "timeCredit": {
+                                            "type": "object"
+                                        }
+                                    }
+                                },
+                                "label": {
+                                    "type": "keyword"
+                                },
+                                "selectedAssetsAndCoxwain": {
+                                    "properties": {
+                                        "actualHours": {
+                                            "type": "keyword"
+                                        },
+                                        "asset": {
+                                            "properties": {
+                                                "GlobalVessel": {
+                                                    "type": "text",
+                                                    "fields": {
+                                                        "keyword": {
+                                                            "type": "keyword",
+                                                            "ignore_above": 256
+                                                        }
+                                                    }
+                                                },
+                                                "assetTitle": {
+                                                    "type": "keyword"
+                                                },
+                                                "id": {
+                                                    "type": "keyword"
+                                                },
+                                                "reimbursementRate": {
+                                                    "type": "keyword"
+                                                },
+                                                "unitId": {
+                                                    "type": "keyword"
+                                                }
+                                            }
+                                        },
+                                        "hours": {
+                                            "type": "keyword"
+                                        },
+                                        "override": {
+                                            "type": "keyword"
+                                        },
+                                        "rate": {
+                                            "type": "keyword"
+                                        },
+                                        "total": {
+                                            "type": "keyword"
+                                        }
+                                    }
+                                },
+                                "totals": {
+                                    "properties": {
+                                        "actualHours": {
+                                            "type": "keyword"
+                                        },
+                                        "hours": {
+                                            "type": "keyword"
+                                        },
+                                        "override": {
+                                            "type": "keyword"
+                                        },
+                                        "rate": {
+                                            "type": "keyword"
+                                        },
+                                        "total": {
+                                            "type": "keyword"
+                                        }
+                                    }
+                                },
+                                "value": {
+                                    "type": "long"
+                                }
+                            }
+                        }
+                    }
+                },
+                "travel": {
+                    "properties": {
+                        "flattenPerson": {
+                            "type": "keyword"
+                        },
+                        "totalDistance": {
+                            "type": "long"
+                        },
+                        "totalDuration": {
+                            "type": "keyword"
+                        },
+                        "travelCost": {
+                            "type": "long"
+                        },
+                        "travelDesc": {
+                            "properties": {
+                                "distance": {
+                                    "type": "keyword"
+                                },
+                                "duration": {
+                                    "type": "keyword"
+                                },
+                                "endPoint": {
+                                    "type": "keyword"
+                                },
+                                "isroundTrip": {
+                                    "type": "keyword"
+                                },
+                                "personName": {
+                                    "type": "keyword"
+                                },
+                                "startingPoint": {
+                                    "type": "keyword"
+                                },
+                                "travelReason": {
+                                    "type": "keyword"
+                                }
+                            }
+                        },
+                        "travelRate": {
+                            "type": "long"
+                        }
+                    }
+                },
+                "uid": {
+                    "type": "keyword"
+                },
+                "unitId": {
+                    "type": "long"
+                }
+            }
+        }
+    }
+}

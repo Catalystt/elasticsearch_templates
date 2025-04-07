@@ -1,0 +1,250 @@
+{
+        "order": 0,
+        "index_patterns": [
+            "equipmenttype_submission"
+        ],
+        "settings": {
+            "index": {
+                "analysis": {
+                    "normalizer": {
+                        "case_insensitive": {
+                            "filter": [
+                                "lowercase",
+                                "asciifolding"
+                            ],
+                            "type": "custom",
+                            "char_filter": []
+                        }
+                    }
+                },
+                "number_of_shards": "5",
+                "number_of_replicas": "2"
+            }
+        },
+        "mappings": {
+            "doc": {
+                "dynamic": "true",
+                "properties": {
+                    "Manufacturer": {
+                        "type": "keyword",
+                        "normalizer": "case_insensitive"
+                    },
+                    "Model": {
+                        "type": "keyword",
+                        "normalizer": "case_insensitive"
+                    },
+                    "SerialNumber": {
+                        "type": "keyword",
+                        "normalizer": "case_insensitive"
+                    },
+                    "additionalTextfield": {
+                        "properties": {
+                            "label": {
+                                "type": "keyword",
+                                "normalizer": "case_insensitive"
+                            },
+                            "values": {
+                                "type": "keyword",
+                                "normalizer": "case_insensitive"
+                            }
+                        }
+                    },
+                    "created": {
+                        "type": "date"
+                    },
+                    "description": {
+                        "type": "keyword",
+                        "normalizer": "case_insensitive"
+                    },
+                    "equipmentRefId": {
+                        "type": "keyword",
+                        "normalizer": "case_insensitive"
+                    },
+                    "equipmentassign": {
+                        "properties": {
+                            "assetId": {
+                                "type": "keyword"
+                            },
+                            "assetName": {
+                                "type": "keyword",
+                                "normalizer": "case_insensitive"
+                            },
+                            "perosnId": {
+                                "type": "keyword"
+                            },
+                            "perosnName": {
+                                "type": "keyword",
+                                "normalizer": "case_insensitive"
+                            },
+                            "type": {
+                                "type": "keyword",
+                                "normalizer": "case_insensitive"
+                            },
+                            "unitId": {
+                                "type": "long"
+                            },
+                            "unitName": {
+                                "type": "keyword",
+                                "normalizer": "case_insensitive"
+                            }
+                        }
+                    },
+                    "equipmentowner": {
+                        "properties": {
+                            "ownerId": {
+                                "type": "keyword"
+                            },
+                            "ownerName": {
+                                "type": "keyword",
+                                "normalizer": "case_insensitive"
+                            },
+                            "unitId": {
+                                "type": "long"
+                            },
+                            "unitName": {
+                                "type": "keyword",
+                                "normalizer": "case_insensitive"
+                            }
+                        }
+                    },
+                    "fileUpload": {
+                        "properties": {
+                            "isImage": {
+                                "type": "boolean"
+                            },
+                            "url": {
+                                "type": "keyword"
+                            }
+                        }
+                    },
+                    "formName": {
+                        "type": "keyword",
+                        "normalizer": "case_insensitive"
+                    },
+                    "formRef": {
+                        "type": "keyword",
+                        "normalizer": "case_insensitive"
+                    },
+                    "formType": {
+                        "type": "keyword",
+                        "normalizer": "case_insensitive"
+                    },
+                    "formid": {
+                        "type": "keyword"
+                    },
+                    "id": {
+                        "type": "keyword"
+                    },
+                    "inventory": {
+                        "type": "long"
+                    },
+                    "modified": {
+                        "type": "date"
+                    },
+                    "name": {
+                        "type": "keyword",
+                        "normalizer": "case_insensitive"
+                    },
+                    "notificationAlert": {
+                        "properties": {
+                            "alertDate": {
+                                "type": "date"
+                            },
+                            "expiryDate": {
+                                "type": "date"
+                            },
+                            "firstAlertDate": {
+                                "type": "date"
+                            },
+                            "firstPersonnelList": {
+                                "properties": {
+                                    "id": {
+                                        "type": "keyword"
+                                    },
+                                    "name": {
+                                        "type": "keyword",
+                                        "normalizer": "case_insensitive"
+                                    }
+                                }
+                            },
+                            "firstRolesList": {
+                                "properties": {
+                                    "id": {
+                                        "type": "long"
+                                    },
+                                    "name": {
+                                        "type": "keyword",
+                                        "normalizer": "case_insensitive"
+                                    }
+                                }
+                            },
+                            "personnel": {
+                                "properties": {
+                                    "id": {
+                                        "type": "keyword"
+                                    },
+                                    "name": {
+                                        "type": "keyword",
+                                        "normalizer": "case_insensitive"
+                                    }
+                                }
+                            },
+                            "roles": {
+                                "properties": {
+                                    "id": {
+                                        "type": "long"
+                                    },
+                                    "name": {
+                                        "type": "keyword",
+                                        "normalizer": "case_insensitive"
+                                    }
+                                }
+                            },
+                            "secondAlertDate": {
+                                "type": "date"
+                            },
+                            "secondPersonnelList": {
+                                "properties": {
+                                    "id": {
+                                        "type": "keyword"
+                                    },
+                                    "name": {
+                                        "type": "keyword",
+                                        "normalizer": "case_insensitive"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "primaryRegionId": {
+                        "type": "long"
+                    },
+                    "regionId": {
+                        "type": "long"
+                    },
+                    "status": {
+                        "type": "keyword",
+                        "normalizer": "case_insensitive"
+                    },
+                    "title": {
+                        "type": "keyword",
+                        "normalizer": "case_insensitive"
+                    },
+                    "totalInventory": {
+                        "type": "long"
+                    },
+                    "type": {
+                        "type": "keyword",
+                        "normalizer": "case_insensitive"
+                    },
+                    "uid": {
+                        "type": "keyword"
+                    },
+                    "usedInventory": {
+                        "type": "long"
+                    }
+                }
+            }
+        },
+        "aliases": {}
+}

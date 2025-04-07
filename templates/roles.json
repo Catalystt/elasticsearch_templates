@@ -1,0 +1,87 @@
+{
+        "order": 0,
+        "index_patterns": [
+            "roles"
+        ],
+        "settings": {
+            "index": {
+                "analysis": {
+                    "normalizer": {
+                        "case_insensitive": {
+                            "filter": [
+                                "lowercase",
+                                "asciifolding"
+                            ],
+                            "type": "custom",
+                            "char_filter": []
+                        }
+                    }
+                },
+                "number_of_shards": "5",
+                "number_of_replicas": "2"
+            }
+        },
+        "mappings": {
+            "default": {
+                "dynamic": "true",
+                "properties": {
+                    "categoryId": {
+                        "type": "long"
+                    },
+                    "categoryName": {
+                        "type": "keyword",
+                        "normalizer": "case_insensitive"
+                    },
+                    "description": {
+                        "type": "keyword",
+                        "normalizer": "case_insensitive"
+                    },
+                    "id": {
+                        "type": "long"
+                    },
+                    "jiraGroupName": {
+                        "type": "keyword",
+                        "normalizer": "case_insensitive"
+                    },
+                    "name": {
+                        "type": "keyword",
+                        "normalizer": "case_insensitive"
+                    },
+                    "permissions": {
+                        "properties": {
+                            "categoryId": {
+                                "type": "long"
+                            },
+                            "categoryName": {
+                                "type": "keyword",
+                                "normalizer": "case_insensitive"
+                            },
+                            "description": {
+                                "type": "keyword",
+                                "normalizer": "case_insensitive"
+                            },
+                            "id": {
+                                "type": "long"
+                            },
+                            "label": {
+                                "type": "keyword",
+                                "normalizer": "case_insensitive"
+                            },
+                            "permissionKey": {
+                                "type": "keyword",
+                                "normalizer": "case_insensitive"
+                            },
+                            "translationCode": {
+                                "type": "keyword",
+                                "normalizer": "case_insensitive"
+                            }
+                        }
+                    },
+                    "regionId": {
+                        "type": "long"
+                    }
+                }
+            }
+        },
+        "aliases": {}
+}

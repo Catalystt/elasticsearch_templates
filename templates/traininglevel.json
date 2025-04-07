@@ -1,0 +1,81 @@
+{
+  "order": 0,
+  "index_patterns": [
+    "traininglevel"
+  ],
+  "settings": {
+    "index": {
+      "number_of_shards": "5",
+      "number_of_replicas": "2"
+    }
+  },
+  "mappings": {
+    "doc": {
+      "dynamic": "true",
+      "properties": {
+        "active": {
+          "type": "keyword"
+        },
+        "certificates": {
+          "properties": {
+            "label": {
+              "type": "keyword"
+            },
+            "value": {
+              "type": "keyword"
+            }
+          }
+        },
+        "created": {
+          "type": "date"
+        },
+        "dateCreated": {
+          "type": "long"
+        },
+        "description": {
+          "type": "keyword"
+        },
+        "formName": {
+          "type": "keyword"
+        },
+        "formid": {
+          "type": "keyword"
+        },
+        "id": {
+          "type": "keyword"
+        },
+        "modified": {
+          "type": "date"
+        },
+        "name": {
+          "type": "keyword"
+        },
+        "nextLevel": {
+          "properties": {
+            "label": {
+              "type": "keyword"
+            },
+            "value": {
+              "type": "keyword"
+            }
+          }
+        },
+        "nextLevelId": {
+          "type": "long"
+        },
+        "primaryRegionId": {
+          "type": "long"
+        },
+        "refId": {
+          "type": "long"
+        },
+        "regionId": {
+          "type": "long"
+        },
+        "seatimeHours": {
+          "type": "long"
+        }
+      }
+    }
+  }
+}

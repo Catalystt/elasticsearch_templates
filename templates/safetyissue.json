@@ -1,0 +1,230 @@
+{
+    "index_patterns": [
+        "safetyissue"
+    ],
+    "settings": {
+        "index": {
+            "number_of_shards": "5",
+            "number_of_replicas": "2"
+        },
+        "analysis": {
+            "normalizer": {
+                "case_insensitive": {
+                    "filter": [
+                        "lowercase",
+                        "asciifolding"
+                    ],
+                    "type": "custom",
+                    "char_filter": []
+                }
+            }
+        }
+    },
+    "mappings": {
+        "doc": {
+            "dynamic": "true",
+            "properties": {
+                "actionInstructions": {
+                    "type": "keyword"
+                },
+                "actionRequiredBy": {
+                    "type": "date"
+                },
+                "additionalFieldInstructions": {
+                    "type": "keyword"
+                },
+                "additionalFields": {
+                    "properties": {
+                        "allowMutiple": {
+                            "type": "boolean"
+                        },
+                        "input": {
+                            "type": "boolean"
+                        },
+                        "key": {
+                            "type": "keyword",
+                            "fields": {
+                                "keyword": {
+                                    "type": "keyword",
+                                    "ignore_above": 256
+                                }
+                            }
+                        },
+                        "label": {
+                            "properties": {
+                                "inputType": {
+                                    "type": "keyword",
+                                    "fields": {
+                                        "keyword": {
+                                            "type": "keyword",
+                                            "ignore_above": 256
+                                        }
+                                    }
+                                },
+                                "label": {
+                                    "type": "keyword",
+                                    "fields": {
+                                        "keyword": {
+                                            "type": "keyword",
+                                            "ignore_above": 256
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "panelTitle": {
+                            "type": "keyword",
+                            "fields": {
+                                "keyword": {
+                                    "type": "keyword",
+                                    "ignore_above": 256
+                                }
+                            }
+                        },
+                        "placeholder": {
+                            "type": "keyword",
+                            "fields": {
+                                "keyword": {
+                                    "type": "keyword",
+                                    "ignore_above": 256
+                                }
+                            }
+                        },
+                        "type": {
+                            "type": "keyword",
+                            "fields": {
+                                "keyword": {
+                                    "type": "keyword",
+                                    "ignore_above": 256
+                                }
+                            }
+                        }
+                    }
+                },
+                "colorpicker": {
+                    "type": "keyword"
+                },
+                "created": {
+                    "type": "date"
+                },
+                "custom": {
+                    "properties": {
+                        "id": {
+                            "type": "keyword"
+                        },
+                        "name": {
+                            "type": "keyword"
+                        }
+                    }
+                },
+                "description": {
+                    "type": "keyword"
+                },
+                "descriptionsInstructions": {
+                    "type": "keyword"
+                },
+                "firstReported": {
+                    "type": "date"
+                },
+                "followUp": {
+                    "type": "keyword"
+                },
+                "formName": {
+                    "type": "keyword"
+                },
+                "formRef": {
+                    "type": "keyword"
+                },
+                "formRefId": {
+                    "type": "keyword"
+                },
+                "formid": {
+                    "type": "keyword"
+                },
+                "id": {
+                    "type": "keyword"
+                },
+                "instructions": {
+                    "type": "keyword"
+                },
+                "modified": {
+                    "type": "date"
+                },
+                "notifyRoles": {
+                    "properties": {
+                        "roleId": {
+                            "type": "long"
+                        },
+                        "roleName": {
+                            "type": "keyword"
+                        }
+                    }
+                },
+                "number": {
+                    "type": "keyword"
+                },
+                "occurance": {
+                    "type": "date"
+                },
+                "primaryRegionId": {
+                    "type": "long"
+                },
+                "regionId": {
+                    "type": "long"
+                },
+                "requestLinkage": {
+                    "properties": {
+                        "id": {
+                            "type": "keyword"
+                        },
+                        "name": {
+                            "type": "keyword"
+                        }
+                    }
+                },
+                "status": {
+                    "type": "keyword"
+                },
+                "suggestedAction": {
+                    "type": "keyword"
+                },
+                "templateType": {
+                    "type": "keyword"
+                },
+                "title": {
+                    "type": "keyword"
+                },
+                "type": {
+                    "type": "keyword"
+                },
+                "uid": {
+                    "type": "keyword"
+                },
+                "unitAsset": {
+                    "properties": {
+                        "asset": {
+                            "properties": {
+                                "assetId": {
+                                    "type": "keyword"
+                                },
+                                "assetName": {
+                                    "type": "keyword"
+                                }
+                            }
+                        },
+                        "unit": {
+                            "properties": {
+                                "unitId": {
+                                    "type": "long"
+                                },
+                                "unitName": {
+                                    "type": "keyword"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

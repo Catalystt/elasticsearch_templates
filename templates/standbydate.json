@@ -1,0 +1,180 @@
+{
+
+    "order": 0,
+  "index_patterns": [
+    "standbydate"
+  ],
+  "settings": {
+    "index": {
+      "analysis": {
+        "normalizer": {
+          "case_insensitive": {
+            "filter": [
+              "lowercase",
+              "asciifolding"
+            ],
+            "type": "custom",
+            "char_filter": []
+          }
+        }
+      },
+      "number_of_shards": "5",
+      "number_of_replicas": "2"
+    }
+  },
+      "mappings": {
+        "doc": {
+          "dynamic": "true",
+          "properties": {
+            "created": {
+              "type": "date"
+            },
+            "dateRanges": {
+              "properties": {
+                "endDate": {
+                  "type": "date"
+                },
+                "notes": {
+                  "type": "text",
+                  "fields": {
+                    "keyword": {
+                      "type": "keyword",
+                      "ignore_above": 256
+                    }
+                  }
+                },
+                "startDate": {
+                  "type": "date"
+                }
+              }
+            },
+            "formName": {
+              "type": "text",
+              "fields": {
+                "keyword": {
+                  "type": "keyword",
+                  "ignore_above": 256
+                }
+              }
+            },
+            "formid": {
+              "type": "text",
+              "fields": {
+                "keyword": {
+                  "type": "keyword",
+                  "ignore_above": 256
+                }
+              }
+            },
+            "id": {
+              "type": "text",
+              "fields": {
+                "keyword": {
+                  "type": "keyword",
+                  "ignore_above": 256
+                }
+              }
+            },
+            "maxDate": {
+              "type": "date"
+            },
+            "minDate": {
+              "type": "date"
+            },
+            "modified": {
+              "type": "date"
+            },
+            "primaryRegionId": {
+              "type": "long"
+            },
+            "regionId": {
+              "type": "long"
+            },
+            "uid": {
+              "type": "text",
+              "fields": {
+                "keyword": {
+                  "type": "keyword",
+                  "ignore_above": 256
+                }
+              }
+            },
+            "unitRelatedPerson": {
+              "properties": {
+                "flattenPerson": {
+                  "type": "text",
+                  "fields": {
+                    "keyword": {
+                      "type": "keyword",
+                      "ignore_above": 256
+                    }
+                  }
+                },
+                "unit": {
+                  "properties": {
+                    "id": {
+                      "type": "text",
+                      "fields": {
+                        "keyword": {
+                          "type": "keyword",
+                          "ignore_above": 256
+                        }
+                      }
+                    },
+                    "name": {
+                      "type": "text",
+                      "fields": {
+                        "keyword": {
+                          "type": "keyword",
+                          "ignore_above": 256
+                        }
+                      }
+                    }
+                  }
+                },
+                "users": {
+                  "properties": {
+                    "givenName": {
+                      "type": "text",
+                      "fields": {
+                        "keyword": {
+                          "type": "keyword",
+                          "ignore_above": 256
+                        }
+                      }
+                    },
+                    "lastName": {
+                      "type": "text",
+                      "fields": {
+                        "keyword": {
+                          "type": "keyword",
+                          "ignore_above": 256
+                        }
+                      }
+                    },
+                    "name": {
+                      "type": "text",
+                      "fields": {
+                        "keyword": {
+                          "type": "keyword",
+                          "ignore_above": 256
+                        }
+                      }
+                    },
+                    "uid": {
+                      "type": "text",
+                      "fields": {
+                        "keyword": {
+                          "type": "keyword",
+                          "ignore_above": 256
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+  }

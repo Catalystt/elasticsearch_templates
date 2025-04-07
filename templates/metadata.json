@@ -1,0 +1,73 @@
+{
+  "index_patterns": [
+    "metadata"
+  ],
+  "settings": {
+    "index": {
+      "number_of_shards": "5",
+      "number_of_replicas": "2"
+    },
+    "analysis": {
+      "normalizer": {
+        "case_insensitive": {
+          "filter": [
+            "lowercase",
+            "asciifolding"
+          ],
+          "type": "custom",
+          "char_filter": []
+        }
+      }
+    }
+  },
+
+    "mappings": {
+      "default": {
+        "dynamic": "strict",
+        "properties": {
+          "description": {
+            "type": "text",
+            "fields": {
+              "raw": {
+                "type": "keyword"
+              }
+            }
+          },
+          "id": {
+            "type": "integer"
+          },
+          "key": {
+            "type": "keyword",
+            "normalizer": "case_insensitive"
+          },
+          "orgId": {
+            "type": "integer"
+          },
+          "store": {
+            "dynamic": "true",
+            "properties": {
+              "key": {
+                "type": "keyword",
+                "normalizer": "case_insensitive"
+              },
+              "value": {
+                "type": "keyword",
+                "normalizer": "case_insensitive"
+              }
+            }
+          },
+          "type": {
+            "type": "keyword"
+          },
+          "uid": {
+            "type": "keyword",
+            "normalizer": "case_insensitive"
+          },
+          "value": {
+            "type": "keyword",
+            "normalizer": "case_insensitive"
+          }
+        }
+      }
+    }
+  }

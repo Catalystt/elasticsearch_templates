@@ -1,0 +1,160 @@
+{
+  "order": 0,
+  "index_patterns": [
+    "trainingcertification"
+  ],
+  "settings": {
+    "index": {
+      "number_of_shards": "5",
+      "number_of_replicas": "2"
+    }
+  },
+  "mappings": {
+    "doc": {
+      "dynamic": "true",
+      "properties": {
+        "active": {
+          "type": "keyword"
+        },
+        "assocCertificates": {
+          "properties": {
+            "label": {
+              "type": "keyword"
+            },
+            "value": {
+              "type": "keyword"
+            }
+          }
+        },
+        "certRefIds": {
+          "type": "long"
+        },
+        "colorTag": {
+          "type": "keyword"
+        },
+        "created": {
+          "type": "date"
+        },
+        "dateCreated": {
+          "type": "date"
+        },
+        "description": {
+          "type": "keyword"
+        },
+        "designationAssociation": {
+          "properties": {
+            "issueAgency": {
+              "type": "keyword"
+            },
+            "numberOption": {
+              "type": "keyword"
+            }
+          }
+        },
+        "expires": {
+          "properties": {
+            "specifyDuration": {
+              "properties": {
+                "flatValue": {
+                  "type": "keyword"
+                },
+                "number": {
+                  "type": "keyword"
+                },
+                "tag": {
+                  "type": "keyword"
+                }
+              }
+            }
+          }
+        },
+        "formName": {
+          "type": "keyword"
+        },
+        "formRef": {
+          "type": "keyword"
+        },
+        "formRefId": {
+          "type": "keyword"
+        },
+        "formid": {
+          "type": "keyword"
+        },
+        "id": {
+          "type": "keyword"
+        },
+        "instructions": {
+          "type": "keyword"
+        },
+        "issueType": {
+          "type": "keyword"
+        },
+        "issuingAgency": {
+          "type": "keyword"
+        },
+        "modified": {
+          "type": "date"
+        },
+        "name": {
+          "type": "keyword"
+        },
+        "notificationAlert": {
+          "properties": {
+            "hideConfiguration": {
+              "type": "boolean"
+            },
+            "isEnableAlert": {
+              "type": "boolean"
+            },
+            "isEnableExpiry": {
+              "type": "boolean"
+            },
+            "isEnablePersonnel": {
+              "type": "boolean"
+            },
+            "isEnableRole": {
+              "type": "boolean"
+            },
+            "isEnableSpecific": {
+              "type": "boolean"
+            },
+            "specifyDuration": {
+              "properties": {
+                "flatValue": {
+                  "type": "keyword"
+                },
+                "number": {
+                  "type": "keyword"
+                },
+                "tag": {
+                  "type": "keyword"
+                }
+              }
+            }
+          }
+        },
+        "numberRequired": {
+          "type": "keyword"
+        },
+        "primaryRegionId": {
+          "type": "long"
+        },
+        "refId": {
+          "type": "long"
+        },
+        "regionId": {
+          "type": "long"
+        },
+        "submit": {
+          "type": "boolean"
+        },
+        "uid": {
+          "type": "keyword"
+        },
+        "unitId": {
+          "type": "long"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,147 @@
+{
+  "order": 0,
+  "index_patterns": [
+    "trainingcertification_submission"
+  ],
+  "settings": {
+    "index": {
+      "number_of_shards": "5",
+      "number_of_replicas": "2"
+    }
+  },
+  "mappings": {
+    "doc": {
+      "dynamic": "true",
+      "properties": {
+        "certificationProof": {
+          "properties": {
+            "associatedCertificates": {
+              "properties": {
+                "label": {
+                  "type": "keyword"
+                },
+                "value": {
+                  "type": "keyword"
+                }
+              }
+            }
+          }
+        },
+        "created": {
+          "type": "date"
+        },
+        "updateDate": {
+          "type": "date"
+        },
+        "designation": {
+          "properties": {
+            "certificateName": {
+              "type": "keyword"
+            },
+            "issueAgency": {
+              "type": "keyword"
+            },
+            "number": {
+              "type": "keyword"
+            },
+            "person": {
+              "properties": {
+                "id": {
+                  "type": "keyword"
+                },
+                "name": {
+                  "type": "keyword"
+                }
+              }
+            },
+            "unit": {
+              "properties": {
+                "id": {
+                  "type": "long"
+                },
+                "name": {
+                  "type": "keyword"
+                }
+              }
+            }
+          }
+        },
+        "fileUpload": {
+          "properties": {
+            "isImage": {
+              "type": "boolean"
+            },
+            "url": {
+              "type": "keyword"
+            }
+          }
+        },
+        "formName": {
+          "type": "keyword"
+        },
+        "formType": {
+          "type": "keyword"
+        },
+        "formid": {
+          "type": "keyword"
+        },
+        "id": {
+          "type": "keyword"
+        },
+        "issueId": {
+          "type": "keyword"
+        },
+        "issueStatus": {
+          "type": "keyword"
+        },
+        "issueStepId": {
+          "type": "long"
+        },
+        "issueType": {
+          "type": "keyword"
+        },
+        "modified": {
+          "type": "date"
+        },
+        "notificationAlert": {
+          "properties": {
+            "expiryDate": {
+              "type": "date"
+            },
+            "firstAlertDate": {
+              "type": "date"
+            },
+            "firstPersonnelList": {
+              "properties": {
+                "id": {
+                  "type": "keyword"
+                },
+                "name": {
+                  "type": "keyword"
+                }
+              }
+            },
+            "secondAlertDate": {
+              "type": "date"
+            },
+            "specifyDuration": {
+              "type": "keyword"
+            }
+          }
+        },
+        "primaryRegionId": {
+          "type": "long"
+        },
+        "regionId": {
+          "type": "long"
+        },
+        "uid": {
+          "type": "keyword"
+        },
+        "unitId": {
+          "type": "long"
+        }
+      }
+    }
+  }
+}

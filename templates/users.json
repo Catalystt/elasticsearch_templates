@@ -1,0 +1,307 @@
+{
+    "users": {
+        "order": 0,
+        "index_patterns": [
+            "users"
+        ],
+        "settings": {
+            "index": {
+                "analysis": {
+                    "normalizer": {
+                        "case_insensitive": {
+                            "filter": [
+                                "lowercase",
+                                "asciifolding"
+                            ],
+                            "type": "custom",
+                            "char_filter": []
+                        }
+                    }
+                },
+                "number_of_shards": "5",
+                "number_of_replicas": "2"
+            }
+        },
+        "mappings": {
+            "default": {
+                "properties": {
+                    "active": {
+                        "type": "boolean"
+                    },
+                    "address": {
+                        "properties": {
+                            "addressLine1": {
+                                "normalizer": "case_insensitive",
+                                "type": "keyword"
+                            },
+                            "addressLine2": {
+                                "normalizer": "case_insensitive",
+                                "type": "keyword"
+                            },
+                            "addressType": {
+                                "normalizer": "case_insensitive",
+                                "type": "keyword"
+                            },
+                            "city": {
+                                "normalizer": "case_insensitive",
+                                "type": "keyword"
+                            },
+                            "id": {
+                                "type": "integer"
+                            },
+                            "postalCode": {
+                                "normalizer": "case_insensitive",
+                                "type": "keyword"
+                            },
+                            "province": {
+                                "normalizer": "case_insensitive",
+                                "type": "keyword"
+                            },
+                            "userId": {
+                                "normalizer": "case_insensitive",
+                                "type": "keyword"
+                            }
+                        }
+                    },
+                    "addressLine1": {
+                        "normalizer": "case_insensitive",
+                        "type": "keyword"
+                    },
+                    "addressLine2": {
+                        "normalizer": "case_insensitive",
+                        "type": "keyword"
+                    },
+                    "avatarUrl": {
+                        "normalizer": "case_insensitive",
+                        "type": "keyword"
+                    },
+                    "bio": {
+                        "normalizer": "case_insensitive",
+                        "type": "keyword"
+                    },
+                    "birthdate": {
+                        "format": "yyyy-MM-dd HH:mm||yyyy-MM-dd||epoch_second",
+                        "type": "date"
+                    },
+                    "city": {
+                        "normalizer": "case_insensitive",
+                        "type": "keyword"
+                    },
+                    "comExEmail": {
+                        "type": "boolean"
+                    },
+                    "comExPostal": {
+                        "type": "boolean"
+                    },
+                    "comExPromoMail": {
+                        "type": "boolean"
+                    },
+                    "company": {
+                        "normalizer": "case_insensitive",
+                        "type": "keyword"
+                    },
+                    "country": {
+                        "normalizer": "case_insensitive",
+                        "type": "keyword"
+                    },
+                    "coxswain": {
+                        "type": "boolean"
+                    },
+                    "designation": {
+                        "normalizer": "case_insensitive",
+                        "type": "keyword"
+                    },
+                    "email": {
+                        "normalizer": "case_insensitive",
+                        "type": "keyword"
+                    },
+                    "emailVerified": {
+                        "type": "boolean"
+                    },
+                    "gender": {
+                        "normalizer": "case_insensitive",
+                        "type": "keyword"
+                    },
+                    "givenName": {
+                        "normalizer": "case_insensitive",
+                        "type": "keyword"
+                    },
+                    "gluuStatus": {
+                        "normalizer": "case_insensitive",
+                        "type": "keyword"
+                    },
+                    "homePhoneNumber": {
+                        "normalizer": "case_insensitive",
+                        "type": "keyword"
+                    },
+                    "jobTitle": {
+                        "normalizer": "case_insensitive",
+                        "type": "keyword"
+                    },
+                    "lastName": {
+                        "normalizer": "case_insensitive",
+                        "type": "keyword"
+                    },
+                    "memberDate": {
+                        "type": "date"
+                    },
+                    "membershipType": {
+                        "normalizer": "case_insensitive",
+                        "type": "keyword"
+                    },
+                    "middleName": {
+                        "normalizer": "case_insensitive",
+                        "type": "keyword"
+                    },
+                    "postalCodeZip": {
+                        "normalizer": "case_insensitive",
+                        "type": "keyword"
+                    },
+                    "preferredLanguage": {
+                        "normalizer": "case_insensitive",
+                        "type": "keyword"
+                    },
+                    "primaryFax": {
+                        "normalizer": "case_insensitive",
+                        "type": "keyword"
+                    },
+                    "primarySquadron": {
+                        "type": "integer"
+                    },
+                    "primarySquadronName": {
+                        "normalizer": "case_insensitive",
+                        "type": "keyword"
+                    },
+                    "provinceState": {
+                        "normalizer": "case_insensitive",
+                        "type": "keyword"
+                    },
+                    "regionId": {
+                        "type": "integer"
+                    },
+                    "regionName": {
+                        "normalizer": "case_insensitive",
+                        "type": "keyword"
+                    },
+                    "roles": {
+                        "normalizer": "case_insensitive",
+                        "type": "keyword"
+                    },
+                    "salutation": {
+                        "normalizer": "case_insensitive",
+                        "type": "keyword"
+                    },
+                    "squadronIDs": {
+                        "normalizer": "case_insensitive",
+                        "type": "keyword"
+                    },
+                    "squadronNames": {
+                        "normalizer": "case_insensitive",
+                        "type": "keyword"
+                    },
+                    "subRegionId": {
+                        "normalizer": "case_insensitive",
+                        "type": "keyword"
+                    },
+                    "subRegionName": {
+                        "normalizer": "case_insensitive",
+                        "type": "keyword"
+                    },
+                    "uid": {
+                        "normalizer": "case_insensitive",
+                        "type": "keyword"
+                    },
+                    "userPreferences": {
+                        "properties": {
+                            "administration": {
+                                "type": "boolean"
+                            },
+                            "age": {
+                                "type": "boolean"
+                            },
+                            "boatOwner": {
+                                "type": "boolean"
+                            },
+                            "comments": {
+                                "type": "keyword"
+                            },
+                            "communications": {
+                                "type": "boolean"
+                            },
+                            "firstaid": {
+                                "type": "boolean"
+                            },
+                            "lake": {
+                                "type": "boolean"
+                            },
+                            "leadership": {
+                                "type": "boolean"
+                            },
+                            "legal": {
+                                "type": "boolean"
+                            },
+                            "marketing": {
+                                "type": "boolean"
+                            },
+                            "membership": {
+                                "type": "boolean"
+                            },
+                            "navigationExperience": {
+                                "type": "boolean"
+                            },
+                            "occupation": {
+                                "type": "keyword"
+                            },
+                            "otherInterest": {
+                                "type": "keyword"
+                            },
+                            "prevention": {
+                                "type": "boolean"
+                            },
+                            "publications": {
+                                "type": "boolean"
+                            },
+                            "revenue": {
+                                "type": "boolean"
+                            },
+                            "river": {
+                                "type": "boolean"
+                            },
+                            "sar": {
+                                "type": "boolean"
+                            },
+                            "sea": {
+                                "type": "boolean"
+                            },
+                            "stLawrance": {
+                                "type": "boolean"
+                            },
+                            "technology": {
+                                "type": "boolean"
+                            },
+                            "volunteer": {
+                                "type": "boolean"
+                            }
+                        }
+                    },
+                    "workPhoneNumber": {
+                        "type": "keyword"
+                    },
+                    "zoneID": {
+                        "normalizer": "case_insensitive",
+                        "type": "keyword"
+                    },
+                    "zoneId": {
+                        "normalizer": "case_insensitive",
+                        "type": "keyword"
+                    },
+                    "zoneName": {
+                        "normalizer": "case_insensitive",
+                        "type": "keyword"
+                    }
+                }
+            }
+        },
+        "aliases": {}
+    }
+}

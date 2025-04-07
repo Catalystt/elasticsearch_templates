@@ -1,0 +1,137 @@
+{
+        "order": 0,
+        "index_patterns": [
+            "milestone"
+        ],
+        "settings": {
+            "index": {
+                "analysis": {
+                    "normalizer": {
+                        "case_insensitive": {
+                            "filter": [
+                                "lowercase",
+                                "asciifolding"
+                            ],
+                            "type": "custom",
+                            "char_filter": []
+                        }
+                    }
+                },
+                "number_of_shards": "5",
+                "number_of_replicas": "2"
+            }
+        },
+        "mappings": {
+            "doc": {
+                "dynamic": "true",
+                "properties": {
+                    "adminEmailMessage": {
+                        "type": "keyword",
+                        "normalizer": "case_insensitive"
+                    },
+                    "amount": {
+                        "type": "keyword"
+                    },
+                    "created": {
+                        "type": "date"
+                    },
+                    "dateCreated": {
+                        "type": "date"
+                    },
+                    "description": {
+                        "type": "keyword",
+                        "normalizer": "case_insensitive"
+                    },
+                    "emailMessage": {
+                        "type": "keyword",
+                        "normalizer": "case_insensitive"
+                    },
+                    "formName": {
+                        "type": "keyword",
+                        "normalizer": "case_insensitive"
+                    },
+                    "formid": {
+                        "type": "keyword"
+                    },
+                    "fromEmail": {
+                        "type": "keyword",
+                        "normalizer": "case_insensitive"
+                    },
+                    "id": {
+                        "type": "keyword"
+                    },
+                    "issueType": {
+                        "type": "keyword",
+                        "normalizer": "case_insensitive"
+                    },
+                    "modified": {
+                        "type": "date"
+                    },
+                    "name": {
+                        "type": "keyword",
+                        "normalizer": "case_insensitive"
+                    },
+                    "notificationName": {
+                        "type": "keyword",
+                        "normalizer": "case_insensitive"
+                    },
+                    "objective": {
+                        "properties": {
+                            "label": {
+                                "type": "keyword",
+                                "normalizer": "case_insensitive"
+                            },
+                            "value": {
+                                "type": "keyword",
+                                "normalizer": "case_insensitive"
+                            }
+                        }
+                    },
+                    "period": {
+                        "properties": {
+                            "label": {
+                                "type": "keyword",
+                                "normalizer": "case_insensitive"
+                            },
+                            "value": {
+                                "type": "keyword",
+                                "normalizer": "case_insensitive"
+                            }
+                        }
+                    },
+                    "primaryRegionId": {
+                        "type": "long"
+                    },
+                    "property": {
+                        "properties": {
+                            "label": {
+                                "type": "keyword",
+                                "normalizer": "case_insensitive"
+                            },
+                            "value": {
+                                "type": "keyword",
+                                "normalizer": "case_insensitive"
+                            }
+                        }
+                    },
+                    "refId": {
+                        "type": "long"
+                    },
+                    "regionId": {
+                        "type": "long"
+                    },
+                    "status": {
+                        "type": "keyword",
+                        "normalizer": "case_insensitive"
+                    },
+                    "uid": {
+                        "type": "keyword"
+                    },
+                    "unitId": {
+                        "type": "long"
+                    }
+                }
+            }
+        },
+        "aliases": {}
+}
